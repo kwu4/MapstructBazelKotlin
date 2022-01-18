@@ -1,0 +1,2 @@
+build --host_java_toolchain=@bazel_tools//tools/jdk:toolchain_java11 --nojava_header_compilation
+build --java_toolchain=@bazel_tools//tools/jdk:toolchain_java11 --nojava_header_compilation
