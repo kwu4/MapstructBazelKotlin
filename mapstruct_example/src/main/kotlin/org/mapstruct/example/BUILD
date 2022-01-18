@@ -15,29 +15,8 @@ kt_jvm_library(
         "//mapstruct_example/src/test:__subpackages__",
     ],
     deps = [
-        "@maven//:org_mapstruct_mapstruct",
-        ":mapstruct",
+        "//mapstruct_example/src/main/java/org/mapstruct/example:lombok", # Fails to compile unless this is added
+        "//mapstruct_example/src/main/java/org/mapstruct/example:mapstruct",
         "//mapstruct_example/src/main/java/org/mapstruct/example"
-    ],
-)
-
-java_library(
-    name = "mapstruct",
-    exported_plugins = [
-        ":mapstruct_plugin",
-    ],
-    visibility = [
-        "//visibility:public",
-    ],
-    exports = [
-        "@maven//:org_mapstruct_mapstruct_processor",
-    ],
-)
-
-java_plugin(
-    name = "mapstruct_plugin",
-    processor_class = "org.mapstruct.ap.MappingProcessor",
-    deps = [
-        "@maven//:org_mapstruct_mapstruct_processor",
     ],
 )
